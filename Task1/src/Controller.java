@@ -39,7 +39,7 @@ public class Controller {
     // Validation method
     private String inputValidation(String input, Scanner sc) {
         while (!sc.hasNext(input)) {
-            view.printMessage(View.WRONG_INPUT_DATA + "\"" + input+ "\")");
+            view.printMessage(View.WRONG_INPUT_DATA + "\"" + input + "\")");
             sc.next();
         }
         return sc.next();
