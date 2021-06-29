@@ -4,7 +4,7 @@ import org.junit.Test;
 
 public class TestArithmetics {
     private static Arithmetics arithmetics;
-    private final double delta = 0.0000000000001;
+    private final double delta = 1e-9;
 
     @BeforeClass
     public static void init() {
@@ -13,27 +13,30 @@ public class TestArithmetics {
 
     @Test
     public void testAdd() {
-        double result = arithmetics.add(3, 7);
-        Assert.assertEquals(10.0, result, delta);
+        double result = arithmetics.add(-5, 10);
+        Assert.assertEquals(5, result, delta);
     }
 
     @Test
     public void testDeduct() {
-        double result = arithmetics.deduct(3, 7);
-        Assert.assertEquals(-4.0, result, delta);
+        double result = arithmetics.deduct(-5, 10);
+        Assert.assertEquals(-15, result, delta);
     }
 
     @Test
-    public void testMult() {
-        double result = arithmetics.multiply(3, 7);
-        Assert.assertEquals(21.0, result, delta);
+    public void testMultiply() {
+        double result = arithmetics.multiply(-5, -10);
+        Assert.assertEquals(50, result, delta);
     }
 
     @Test
-    public void TestDiv() {
-        double result = arithmetics.div(10, 5);
-        Assert.assertEquals(2.0, result, delta);
+    public void testDivide() {
+        double result = arithmetics.divide(36, 6);
+        Assert.assertEquals(6, result, delta);
     }
 
-
+    @Test(expected = ArithmeticException.class)
+    public void zeroDenominatorShouldThrowException() {
+        arithmetics.divide(5,0);
+    }
 }
