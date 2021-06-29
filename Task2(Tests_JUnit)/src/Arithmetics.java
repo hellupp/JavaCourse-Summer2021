@@ -8,7 +8,7 @@ public class Arithmetics {
         return a - b;
     }
 
-    public double mult(double a, double b) {
+    public double multiply(double a, double b) {
         return a * b;
     }
 

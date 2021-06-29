@@ -25,7 +25,7 @@ public class TestArithmetics {
 
     @Test
     public void testMult() {
-        double result = arithmetics.mult(3, 7);
+        double result = arithmetics.multiply(3, 7);
         Assert.assertEquals(21.0, result, delta);
     }
 
