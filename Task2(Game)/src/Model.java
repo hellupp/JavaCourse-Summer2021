@@ -18,7 +18,8 @@ public class Model {
     }
 
     public void generateSecretNumber() {
-        this.secretNumber = (int) (Math.random() * 99);
+        this.secretNumber = (int) Math.ceil(Math.random()*
+                (maxBarrier - minBarrier - 1) + minBarrier);
     }
 
 
