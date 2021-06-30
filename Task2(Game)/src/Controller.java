@@ -13,18 +13,15 @@ public class Controller {
     public void processUser(){
         Scanner sc = new Scanner(System.in);
 
-//        model.setPrimaryBarrier(GlobalConstants.PRIMARY_MIN_BARRIER,
-//                GlobalConstants.PRIMARY_MAX_BARRIER);
+        model.setPrimaryBarrier(GlobalConstants.PRIMARY_MIN_BARRIER,
+                GlobalConstants.PRIMARY_MAX_BARRIER);
 
-        model.generateNumber();
+        model.generateSecretNumber();
+
         view.printMessage(View.GREETING_MESSAGE);
-        model.setEnteredNumber(inputIntValueInDiapason(sc));
 
-        while(model.getEnteredNumber() != model.getNumber()){
-            model.playGame();
-            view.printMessage(model.messageToPrint);
-            model.setEnteredNumber(inputIntValueInDiapason(sc));
-        }
+        while (model.checkEnteredNumber(inputIntValueInDiapason(sc)));
+
         view.printMessage(View.CONGRATULATION_MESSAGE + model.getAttempts());
     }
 

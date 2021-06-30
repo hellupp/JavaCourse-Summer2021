@@ -2,41 +2,43 @@ import java.util.ArrayList;
 
 public class Model {
 
-    private int number;
-    private int enteredNumber;
+    private int secretNumber;
+
     private int minBarrier = 0;
     private int maxBarrier = 100;
-    private boolean repeatedAttempt = false;
+
     private ArrayList<Integer> attempts = new ArrayList<>();
-    public String messageToPrint = "";
 
 
-    public int getNumber() {
-        return number;
+    public void setPrimaryBarrier(int minBarrier, int maxBarrier){
+        this.minBarrier = minBarrier;
+        this.maxBarrier = maxBarrier;
     }
 
-    public int getEnteredNumber() {
-        return enteredNumber;
+    public void generateSecretNumber() {
+        this.secretNumber = 1 + (int) (Math.random() * 100);
     }
 
-    public void setEnteredNumber(int enteredNum) {
-        this.enteredNumber = enteredNum;
 
-        if (isBiggerThan(this.number)) {
-            this.maxBarrier = enteredNum;
+    public boolean checkEnteredNumber (int num){
+        attempts.add(num);
+        if (num == secretNumber){
+            return false;
+        } else if (num > secretNumber){
+            maxBarrier = num;
         } else {
-            this.minBarrier = enteredNum;
+            minBarrier = num;
         }
-
-        if (this.attempts.contains(this.enteredNumber)) {
-            repeatedAttempt = true;
-        } else {
-            this.attempts.add(enteredNum);
-        }
+        return true;
     }
+
 
     public ArrayList<Integer> getAttempts() {
         return this.attempts;
+    }
+
+    public int getSecretNumber() {
+        return secretNumber;
     }
 
     public int getMinBarrier() {
@@ -45,30 +47,5 @@ public class Model {
 
     public int getMaxBarrier() {
         return this.maxBarrier;
-    }
-
-    public void generateNumber() {
-        this.number = 1 + (int) (Math.random() * 100);
-    }
-
-    private boolean isBiggerThan(int num) {
-        return (this.enteredNumber > num);
-    }
-
-    public void playGame() {
-        if (repeatedAttempt) {
-            this.messageToPrint = "You have already entered this one! Try harder!!!\n" +
-                    "Your attempts: " + this.attempts + "\n";
-
-            repeatedAttempt = false;
-        } else {
-            if (isBiggerThan(this.number)) {
-                this.messageToPrint = "Your attempts: " + this.attempts + "\nEnter smaller number in [" +
-                        this.minBarrier + "; " + this.maxBarrier + "]\n";
-            } else {
-                this.messageToPrint = "Your attempts: " + this.attempts + "\nEnter bigger number in [" +
-                        this.minBarrier + "; " + this.maxBarrier + "]\n";
-            }
-        }
     }
 }
