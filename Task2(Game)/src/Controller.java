@@ -20,7 +20,9 @@ public class Controller {
 
         view.printMessage(View.GREETING_MESSAGE);
 
-        while (model.checkEnteredNumber(inputIntValueInDiapason(sc)));
+        while (model.checkEnteredNumber(inputIntValueInDiapason(sc))){
+            view.printMessage(model.messageToPrint);
+        }
 
         view.printMessage(View.CONGRATULATION_MESSAGE + model.getAttempts());
     }
