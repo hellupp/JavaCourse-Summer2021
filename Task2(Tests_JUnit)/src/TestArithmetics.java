@@ -2,6 +2,7 @@ import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+
 public class TestArithmetics {
     private static Arithmetics arithmetics;
     private final double delta = 1e-9;
