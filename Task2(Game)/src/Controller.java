@@ -13,6 +13,9 @@ public class Controller {
     public void processUser(){
         Scanner sc = new Scanner(System.in);
 
+//        model.setPrimaryBarrier(GlobalConstants.PRIMARY_MIN_BARRIER,
+//                GlobalConstants.PRIMARY_MAX_BARRIER);
+
         model.generateNumber();
         view.printMessage(View.GREETING_MESSAGE);
         model.setEnteredNumber(inputIntValueInDiapason(sc));
