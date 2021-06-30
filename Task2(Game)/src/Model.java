@@ -4,7 +4,6 @@ public class Model {
 
     private int secretNumber;
     public String messageToPrint = "";
-    private boolean repeatedAttempt = false;
 
     private int minBarrier;
     private int maxBarrier;
@@ -28,8 +27,6 @@ public class Model {
             this.messageToPrint = "Your attempts: " + this.attempts +
                     "\nYou have already entered this one! Try harder!!!" +
                     "\nEnter number in [" + this.minBarrier + "; " + this.maxBarrier + "]\n";
-
-            repeatedAttempt = false;
             return true;
         } else {
             attempts.add(num);
