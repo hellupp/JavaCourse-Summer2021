@@ -4,6 +4,7 @@ import org.junit.Test;
 
 public class GameTest {
     private static Model model;
+    private final int numberOfAttempts = 10000;
 
     @BeforeClass
     public static void initialize() {
@@ -13,7 +14,7 @@ public class GameTest {
 
     @Test
     public void secretNumbersIsInDiapason() {
-        for (int i = 0; i < 10000; i++) {
+        for (int i = 0; i < numberOfAttempts; i++) {
             model.generateSecretNumber();
             int secretNumber = model.getSecretNumber();
             boolean isInDiapason = (secretNumber > model.getMinBarrier()) & (secretNumber < model.getMaxBarrier());
@@ -23,7 +24,7 @@ public class GameTest {
 
     @Test
     public void equalledSecretNumberReturnFalse() {
-        for (int i = 0; i < 10000; i++) {
+        for (int i = 0; i < numberOfAttempts; i++) {
             model.getAttempts().clear();
             model.generateSecretNumber();
             int secretNumber = model.getSecretNumber();
