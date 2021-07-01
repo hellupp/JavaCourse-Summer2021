@@ -27,7 +27,6 @@ public class Model {
             this.messageToPrint = "Your attempts: " + this.attempts +
                     "\nYou have already entered this one! Try harder!!!" +
                     "\nEnter number in [" + this.minBarrier + "; " + this.maxBarrier + "]\n";
-            return true;
         } else {
             attempts.add(num);
             if (num == secretNumber){
@@ -41,8 +40,8 @@ public class Model {
                 this.messageToPrint = "Your attempts: " + this.attempts + "\nEnter bigger number in [" +
                         this.minBarrier + "; " + this.maxBarrier + "]\n";
             }
-            return true;
         }
+        return true;
     }
 
 
