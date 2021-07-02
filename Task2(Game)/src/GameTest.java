@@ -13,7 +13,7 @@ public class GameTest {
     }
 
     @Test
-    public void secretNumbersIsInDiapason() {
+    public void secretNumbersAreInDiapason() {
         for (int i = 0; i < numberOfAttempts; i++) {
             model.generateSecretNumber();
             int secretNumber = model.getSecretNumber();
@@ -23,7 +23,7 @@ public class GameTest {
     }
 
     @Test
-    public void equalledSecretNumberReturnFalse() {
+    public void equalledSecretNumberReturnsFalse() {
         for (int i = 0; i < numberOfAttempts; i++) {
             model.getAttempts().clear();
             model.generateSecretNumber();
