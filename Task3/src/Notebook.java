@@ -26,8 +26,8 @@ public class Notebook {
     }
 
     public String getNotes() {
-        return new String("\tSurname: " + userSurname + "\n\tName: " +
+        return "\tSurname: " + userSurname + "\n\tName: " +
                 userName + "\n\tSecond name: " + userSecondName +
-                "\n\tLogin: " + userLogin);
+                "\n\tLogin: " + userLogin;
     }
 }
