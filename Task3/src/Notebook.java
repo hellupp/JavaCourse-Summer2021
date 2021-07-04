@@ -1,4 +1,6 @@
 public class Notebook {
+    public static final int NUMBER_OF_GAPS = 4;
+
 
     private String userSurname;
     private String userName;
@@ -26,6 +28,6 @@ public class Notebook {
     public String getNotes() {
         return new String("\tSurname: " + userSurname + "\n\tName: " +
                 userName + "\n\tSecond name: " + userSecondName +
-                    "\n\tLogin: " + userLogin);
+                "\n\tLogin: " + userLogin);
     }
 }

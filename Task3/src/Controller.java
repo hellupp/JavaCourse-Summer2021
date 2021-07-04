@@ -4,51 +4,67 @@ import java.util.regex.Pattern;
 
 public class Controller {
 
-    private Notebook notebook;
-    private View view;
+    private final Notebook notebook;
+    private final View view;
 
-    private Pattern pattern;
-    private Matcher matcher;
-
-
-    public Controller(Notebook notebook, View view){
+    public Controller(Notebook notebook, View view) {
         this.notebook = notebook;
         this.view = view;
     }
 
-    public void processUser(){
-        boolean needToInput = true;
+    public void processUser() {
+        int numOfQuestion = 1;
         Scanner sc = new Scanner(System.in);
 
         view.printMessage(View.GREETING_MESSAGE);
 
-        for (int i = 0; i < 1; i++){
-            view.printMessage(View.MESSAGE_FOR_INPUT);
-            inputAndCheckValue(sc, RegexConstants.REGEX_NAME);
-        }
+        while (numOfQuestion <= Notebook.NUMBER_OF_GAPS) {
+            switch (numOfQuestion) {
 
+                case 1:
+                    view.printMessage(View.MESSAGE_FOR_INPUT + "surname");
+                    notebook.setUserSurname(inputAndCheckValue(sc, RegexConstants.REGEX_SURNAME));
+                    numOfQuestion++;
+                    break;
+                case 2:
+                    view.printMessage(View.MESSAGE_FOR_INPUT + "name");
+                    notebook.setUserName(inputAndCheckValue(sc, RegexConstants.REGEX_NAME));
+                    numOfQuestion++;
+                    break;
+                case 3:
+                    view.printMessage(View.MESSAGE_FOR_INPUT + "second name");
+                    notebook.setUserSecondName(inputAndCheckValue(sc, RegexConstants.REGEX_SECOND_NAME));
+                    numOfQuestion++;
+                    break;
+                case 4:
+                    view.printMessage(View.MESSAGE_FOR_INPUT + "login");
+                    notebook.setUserLogin(inputAndCheckValue(sc, RegexConstants.REGEX_LOGIN));
+                    numOfQuestion++;
+                    break;
+                default:
+                    throw new IllegalStateException("Unexpected value: " +
+                            numOfQuestion + ">" + Notebook.NUMBER_OF_GAPS);
+            }
+        }
         view.printMessage(View.FINAL_MESSAGE + notebook.getNotes());
     }
 
 
+    public String inputAndCheckValue(Scanner sc, String regex) {
+        String res = sc.next();
 
-    public boolean inputAndCheckValue(Scanner sc, String regex){
-        String res = sc.nextLine();
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(res);
 
-        pattern = Pattern.compile(regex);
-        matcher = pattern.matcher(res);
-
-        while(true){
+        while (true) {
             if (matcher.find()) {
-                notebook.setUserName(res);
-                break;
+                return res;
             } else {
                 view.printMessage(View.WRONG_INPUT);
                 res = sc.next();
                 matcher = pattern.matcher(res);
             }
         }
-        return true;
     }
 
 }
