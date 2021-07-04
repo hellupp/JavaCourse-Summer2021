@@ -12,6 +12,10 @@ public class Controller {
         this.view = view;
     }
 
+
+    /**
+     * Main work method
+     */
     public void processUser() {
         int numOfQuestion = 1;
         Scanner sc = new Scanner(System.in);
@@ -50,6 +54,11 @@ public class Controller {
     }
 
 
+    /**
+     * @param sc    Scanner
+     * @param regex Regular expression from RegexConstants.java interface
+     * @return Inputted String after checking if it's valid
+     */
     public String inputAndCheckValue(Scanner sc, String regex) {
         String res = sc.next();
 
