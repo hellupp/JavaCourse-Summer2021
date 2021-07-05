@@ -48,6 +48,11 @@ public class Controller {
                     notebook.setUserLogin(inputAndCheckValue(sc, RegexConstants.REGEX_LOGIN));
                     numOfQuestion++;
                     break;
+                case 5:
+                    view.printMessage(View.MESSAGE_FOR_INPUT + "num");
+                    notebook.setUserMobilePhoneNumber1(inputAndCheckValue(sc, RegexConstants.REGEX_MOBILE_PHONE_NUMBER_1));
+                    numOfQuestion++;
+                    break;
                 default:
                     throw new IllegalStateException("Unexpected value: " +
                             numOfQuestion + ">" + Notebook.NUMBER_OF_GAPS);
