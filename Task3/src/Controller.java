@@ -2,6 +2,9 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * The Controller class provides inputting value, checking it and writing down in Notebook class
+ */
 public class Controller {
 
     private final Notebook notebook;
@@ -14,7 +17,7 @@ public class Controller {
 
 
     /**
-     * Main work method
+     * Work method
      */
     public void processUser() {
         int numOfQuestion = 1;

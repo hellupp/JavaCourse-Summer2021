@@ -1,3 +1,6 @@
+/**
+ * The Notebook class is an imitation of real notebook with fields with user's info
+ */
 public class Notebook {
     public static final int NUMBER_OF_GAPS = 4;
 
