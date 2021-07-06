@@ -1,3 +1,7 @@
+import Controllers.Controller;
+import Notes.Notebook;
+import View.View;
+
 public class Main {
 
     public static void main(String[] args) {
