@@ -1,7 +1,6 @@
 import java.util.Objects;
 
-public class Student {
-
+public class Student implements Cloneable {
     private String name;
     private int age;
     private String group;
@@ -36,12 +35,11 @@ public class Student {
         this.group = group;
     }
 
-    @Override
+
     public boolean equals(Object o) {
         if (this == o) {
             return true;
-        }
-        if ((o == null) || (getClass() != o.getClass())){
+        } else if ((o == null) || (getClass() != o.getClass())) {
             return false;
         }
         Student student = (Student) o;
@@ -49,8 +47,24 @@ public class Student {
                 && Objects.equals(group, student.group);
     }
 
-    @Override
     public int hashCode() {
         return Objects.hash(name, age, group);
+    }
+
+    public Object clone() {
+        try {
+            return super.clone();
+        } catch (CloneNotSupportedException e) {
+            throw new AssertionError("no Cloneable found!");
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                ", group='" + group + '\'' +
+                '}';
     }
 }
