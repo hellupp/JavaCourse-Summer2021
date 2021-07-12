@@ -1,4 +1,4 @@
-package View;
+package view;
 
 public interface TextConstants {
     String GREETING_MESSAGE = "input.greeting.data";

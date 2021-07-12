@@ -1,4 +1,4 @@
-package Controllers;
+package controller;
 
 public interface RegexConstants {
 
@@ -19,7 +19,7 @@ public interface RegexConstants {
     String REGEX_GROUP = "";
 
     String REGEX_HOME_PHONE_NUMBER = "\\d{10}|(?:\\d{3}-){2}\\d{4}|\\(\\d{3}\\)\\d{3}-?\\d{4}";
-    String REGEX_MOBILE_PHONE_NUMBER_1 = "\\d{10}|(?:\\d{3}-){2}\\d{4}|\\(\\d{3}\\)\\d{3}-?\\d{4}";
+    String REGEX_MOBILE_PHONE_NUMBER_1 = "\\d{10}|(?:\\d{3}[-\\s]){2}\\d{4}|(?:\\d{3}[-\\s]){2}\\d{2}[-\\s]\\d{2}|\\(\\d{3}\\)\\d{3}[\\s-?]\\d{4}|\\(\\d{3}\\)\\d{3}[\\s-?]\\d{2}[\\s-?]\\d{2}";
     String REGEX_MOBILE_PHONE_NUMBER_2 = "\\d{10}|(?:\\d{3}-){2}\\d{4}|\\(\\d{3}\\)\\d{3}-?\\d{4}";
 
     String REGEX_EMAIL = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$";

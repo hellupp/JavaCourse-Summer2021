@@ -1,6 +1,6 @@
-package Controllers;
+package controller;
 
-import View.View;
+import view.View;
 
 import java.util.Scanner;
 

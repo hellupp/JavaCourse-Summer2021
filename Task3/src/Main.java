@@ -1,6 +1,6 @@
-import Controllers.Controller;
-import Notes.Notebook;
-import View.View;
+import controller.Controller;
+import model.Notebook;
+import view.View;
 
 public class Main {
 

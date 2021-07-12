@@ -1,8 +1,7 @@
-package Controllers;
+package controller;
 
-import Notes.InputNotes;
-import Notes.Notebook;
-import View.View;
+import model.Notebook;
+import view.View;
 
 import java.util.Scanner;
 

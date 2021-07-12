@@ -1,12 +1,12 @@
-package Notes;
+package controller;
 
-import Controllers.UtilityController;
-import View.View;
+import model.Notebook;
+import view.View;
 
 import java.util.Scanner;
 
-import static Controllers.RegexConstants.*;
-import static View.TextConstants.*;
+import static controller.RegexConstants.*;
+import static view.TextConstants.*;
 
 public class InputNotes {
     private View view;
@@ -37,11 +37,19 @@ public class InputNotes {
         str = isUkrainianLocale ? REGEX_SECOND_NAME_UKR : REGEX_SECOND_NAME_LAT;
         notebook.setUserSecondName(utilityController.inputAndCheckValue(SECOND_NAME, str));
 
-        notebook.setUserLogin(utilityController.inputAndCheckValue(LOGIN, REGEX_LOGIN));
+        notebook.setUserLogin(utilityController.inputAndCheckValue(LOGIN, REGEX_LOGIN), this);
+
         notebook.setUserMobilePhoneNumber1(utilityController.inputAndCheckValue
                 (MOBILE_PHONE_NUMBER, REGEX_MOBILE_PHONE_NUMBER_1));
 
         view.printFinalMessage();
         view.printMessage(isUkrainianLocale ? notebook.getNotesUkr() : notebook.getNotesLat());
+    }
+
+    public void inputLogin(){
+        UtilityController utilityController =
+                new UtilityController(scanner, view);
+        this.notebook.setUserLogin(utilityController.inputAndCheckValue
+                (LOGIN, REGEX_LOGIN), this);
     }
 }

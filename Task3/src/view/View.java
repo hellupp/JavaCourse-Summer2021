@@ -1,9 +1,9 @@
-package View;
+package view;
 
 import java.util.Locale;
 import java.util.ResourceBundle;
 
-import static View.TextConstants.*;
+import static view.TextConstants.*;
 
 public class View {
 
